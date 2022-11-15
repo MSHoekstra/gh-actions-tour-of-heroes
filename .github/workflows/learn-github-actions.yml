@@ -1,5 +1,5 @@
 name: my-first-action
-run-name: ${{ github.repository }} is the repository 
+run-name: ${{ github.repository_owner }} is the owner!
 on: [push]
 jobs:
   check-bats-version:
