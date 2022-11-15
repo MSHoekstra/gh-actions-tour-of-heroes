@@ -1,9 +1,6 @@
 name: my-first-action
 run-name: ${{ github.repository_owner }} is the owner!
-on: 
-  pull_request:
-      types:
-        - closed
+on: [push]
 jobs:
   run-when-pr-merged:
     if: github.event.pull_request.merged == true
