@@ -23,18 +23,24 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm i -g @angular/cli
-      - run: ng test
-    
-  deploy:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    needs: [build, test]
+      - run: ng test  
+      
+  build-and-deploy:
+    #needs: [build, test]
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm ci
-      - run: npm i -g @angular/cli
-      - run: ng deploy --base-href=/gh-actions-tour-of-heroes/ --name="MSHoekstra" --email="Max.Hoekstra@topicus.nl" --no-silent
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+
+    - name: Prepare and deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        npm install
+        npm run ng -- deploy --base-href=/gh-actions-tour-of-heroes/ --name="MSHoekstra" --email="Max.Hoekstra@topicus.nl" --no-silent
