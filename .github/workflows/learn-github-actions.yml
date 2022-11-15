@@ -2,8 +2,7 @@ name: my-first-action
 run-name: ${{ github.repository_owner }} is the owner!
 on: [push]
 jobs:
-  run-when-pr-merged:
-    if: github.event.pull_request.merged == true
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,6 +15,13 @@ jobs:
   new-job:
     runs-on: windows-latest
     steps:
-      - name: echo this is a test
+      - name: Windows - echo this is a test
         run: echo this is a test
         shell: cmd
+        
+  run-when-pr-merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Request has been merged
+        run: $echo "Yay"
