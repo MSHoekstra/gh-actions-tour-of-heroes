@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -113,12 +113,6 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "/gh-actions-tour-of-heroes/",
-            "repo": "https://github.com/MSHoekstra/gh-actions-tour-of-heroes.git",
-            "name": "MSHoekstra",
-            "email": "Max.Hoekstra@topicus.nl"
-          }
         }
       }
     }

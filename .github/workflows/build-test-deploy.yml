@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: latest
       - run: npm ci
       - run: npm i -g @angular/cli
       - run: ng build
@@ -23,9 +23,11 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm i -g @angular/cli
-      - run: ng test
-    
+      - run: ng test  
+      
   deploy:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     needs: [build, test]
     runs-on: ubuntu-latest
     steps:
@@ -35,5 +37,4 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm i -g @angular/cli
-      - run: ng add angular-cli-ghpages
-      
+      - run: ng deploy --base-href=/gh-actions-tour-of-heroes/ --name="MSHoekstra" --email="Max.Hoekstra@topicus.nl" --no-silent
