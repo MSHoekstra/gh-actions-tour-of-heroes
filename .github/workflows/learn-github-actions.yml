@@ -16,6 +16,6 @@ jobs:
   new-job:
     runs-on: windows-latest
     steps:
-      - name: echo "this is a test"
-        run: echo "this is a test"
+      - name: echo this is a test
+        run: echo this is a test
         shell: cmd
