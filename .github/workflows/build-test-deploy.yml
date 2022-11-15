@@ -14,6 +14,7 @@ jobs:
       - run: ng build
   
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,6 +26,7 @@ jobs:
       - run: ng test
     
   deploy:
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - run: echo "to be deployed"
