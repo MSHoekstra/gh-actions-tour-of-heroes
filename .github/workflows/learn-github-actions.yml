@@ -1,5 +1,5 @@
 name: my-first-action
-run-name: ${{ github.action_repository }} is the action repository 
+run-name: ${{ github.repository }} is the repository 
 on: [push]
 jobs:
   check-bats-version:
