@@ -4,19 +4,19 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-            with:
-              node-version: latest
-        - run: npm i -g @angular/cli
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm i -g @angular/cli
   
   test:
     runs-on: ubuntu-latest
-      steps:
-        - run: $echo "to be tested"
+    steps:
+      - run: $echo "to be tested"
     
   deploy:
     runs-on: ubuntu-latest
-      steps:
-        - run: $echo "to be deployed"
+    steps:
+      - run: $echo "to be deployed"
