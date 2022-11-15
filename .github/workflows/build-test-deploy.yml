@@ -42,5 +42,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        npm install
+        npm ci
         npm run ng -- deploy --base-href=/gh-actions-tour-of-heroes/ --name="MSHoekstra" --email="Max.Hoekstra@topicus.nl" --no-silent
