@@ -10,6 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "ng e2e"
+    "deploy": "ng deploy"
   },
   "private": true,
   "dependencies": {
