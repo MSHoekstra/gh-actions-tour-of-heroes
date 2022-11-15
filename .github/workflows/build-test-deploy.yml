@@ -10,13 +10,19 @@ jobs:
         with:
           node-version: '14'
       - run: npm ci
-      - run: npm i @angular/cli
+      - run: npm i -g @angular/cli
       - run: ng build
   
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "to be tested"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: npm i -g @angular/cli
+      - run: ng test
     
   deploy:
     runs-on: ubuntu-latest
