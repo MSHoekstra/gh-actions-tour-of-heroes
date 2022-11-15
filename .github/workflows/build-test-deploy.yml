@@ -37,6 +37,4 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm i -g @angular/cli
-      - run: ng deploy
-
-      
+      - run: ng -- deploy --base-href=/gh-actions-tour-of-heroes/ --name="MSHoekstra" --email="Max.Hoekstra@topicus.nl" --no-silent
