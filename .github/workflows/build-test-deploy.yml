@@ -14,9 +14,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: $echo to be tested
+      - run: echo "to be tested"
     
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: $echo to be deployed
+      - run: echo "to be deployed"
