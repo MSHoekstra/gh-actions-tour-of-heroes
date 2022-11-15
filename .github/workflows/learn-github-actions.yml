@@ -16,4 +16,6 @@ jobs:
   new-job:
     runs-on: windows-latest
     steps:
-      - run: echo this is a test on windows
+      - name: echo "this is a test"
+        run: echo "this is a test"
+        shell: cmd
