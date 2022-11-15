@@ -26,6 +26,8 @@ jobs:
       - run: ng test
     
   deploy:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     needs: [build, test]
     runs-on: ubuntu-latest
     steps:
@@ -35,4 +37,6 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm i -g @angular/cli
+      - run: ng deploy
+
       
