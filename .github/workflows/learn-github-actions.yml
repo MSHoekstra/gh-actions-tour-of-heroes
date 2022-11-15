@@ -14,6 +14,6 @@ jobs:
       - run: bats -v
   
   new-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - run: $echo "this is a test on windows"
+      - run: echo this is a test on windows
